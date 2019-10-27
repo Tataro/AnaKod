@@ -17,6 +17,12 @@ import CommentTypes from '../../api/Comments/types';
 import CommentQueries from '../../api/Comments/queries';
 import CommentMutations from '../../api/Comments/mutations';
 
+import MessageTypes from '../../api/Messages/types';
+import MessageQueries from '../../api/Messages/queries';
+
+import TicketTypes from '../../api/Tickets/types';
+import TicketQueries from '../../api/Tickets/queries';
+
 import OAuthQueries from '../../api/OAuth/queries';
 
 import '../../api/Documents/server/indexes';
@@ -28,6 +34,8 @@ const schema = {
     ${DocumentTypes}
     ${CommentTypes}
     ${UserSettingsTypes}
+    ${MessageTypes}
+    ${TicketTypes}
 
     type Query {
       documents: [Document]
@@ -37,6 +45,8 @@ const schema = {
       userSettings: [UserSetting]
       exportUserData: UserDataExport
       oAuthServices(services: [String]): [String]
+      messages: [Message]
+      tickets: [Ticket]
     }
 
     type Mutation {
@@ -64,6 +74,8 @@ const schema = {
       ...UserQueries,
       ...UserSettingsQueries,
       ...OAuthQueries,
+      ...MessageQueries,
+      ...TicketQueries,
     },
     Mutation: {
       ...DocumentMutations,

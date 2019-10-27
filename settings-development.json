@@ -3,8 +3,8 @@
     "graphQL": {
       "httpUri": "http://localhost:3000/graphql"
     },
-    "productName": "Complain & Advice",
-    "copyrightStartYear": "2018",
+    "productName": "My Supporter",
+    "copyrightStartYear": "2019",
     "twitterUsername": "product",
     "facebookUsername": "product",
     "productAddress": "1658 N. Milwaukee Ave., #393, Chicago, IL 60647"

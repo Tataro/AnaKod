@@ -2,6 +2,7 @@ import xml from 'xml';
 import { Meteor } from 'meteor/meteor';
 import { Picker } from 'meteor/meteorhacks:picker';
 import Documents from '../../api/Documents/Documents';
+import Messages from '../../api/Messages/Messages';
 import { iso } from '../../modules/dates.js';
 
 const baseUrl = Meteor.absoluteUrl();
@@ -26,6 +27,12 @@ const routes = [
     query: {},
     projection: { fields: { _id: 1, createdAt: 1 }, sort: { createdAt: -1 } },
   },
+
+  {
+    base: 'messages',
+    collection: Messages,
+    query: {},
+  },
 ];
 
 const sitemap = {
@@ -48,8 +55,8 @@ routes.forEach(({ base, collection, query, projection }) => {
   if (collection) {
     const items = collection.find(query, projection).fetch();
     if (items.length > 0) {
-      items.forEach(({ _id, createdAt }) => {
-        sitemap.urlset.push(urlTemplate(`${base}/${_id}`, createdAt, 0.5));
+      items.forEach(({ _id, createdAt, created_time: createdTime }) => {
+        sitemap.urlset.push(urlTemplate(`${base}/${_id}`, createdAt || createdTime, 0.5));
       });
     }
   }

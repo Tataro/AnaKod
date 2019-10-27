@@ -1,0 +1,8 @@
+fragment MessageAttributes on Message {
+  _id
+  description
+  url
+  created_time
+  updated_time
+  ticket_id
+}

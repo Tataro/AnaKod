@@ -1,0 +1,20 @@
+query messages {
+  messages {
+    _id
+    description
+    url
+    created_time
+    updated_time
+    ticket_id
+  }
+}
+
+query documents {
+  documents {
+    _id
+    isPublic
+    title
+    updatedAt
+    createdAt
+  }
+}
