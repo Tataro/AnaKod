@@ -22,6 +22,11 @@ const AdminUserHeader = styled.h4`
     background: var(--github);
     color: #fff;
   }
+
+  .label-Twitter {
+    background: var(--twitter);
+    color: #fff;
+  }
 `;
 
 const AdminUserTabs = styled(Tabs)`

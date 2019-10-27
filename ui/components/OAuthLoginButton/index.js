@@ -20,6 +20,9 @@ const handleLogin = (service, callback) => {
       requestOfflineToken: true,
       loginStyle: 'popup',
     },
+    twitter: {
+      loginStyle: 'popup',
+    },
   }[service];
 
   return {

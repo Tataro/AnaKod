@@ -43,6 +43,15 @@ const OAuthLoginButton = styled.button`
     }
   }
 
+  &.OAuthLoginButton-twitter {
+    background: var(--twitter);
+    color: #fff;
+
+    &:hover {
+      background: ${darken(0.05, '#386771')};
+    }
+  }
+
   &:active {
     position: relative;
     top: 1px;

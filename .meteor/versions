@@ -4,6 +4,7 @@ accounts-github@1.4.2
 accounts-google@1.3.3
 accounts-oauth@1.1.16
 accounts-password@1.5.1
+accounts-twitter@1.4.2
 alanning:roles@1.2.16
 allow-deny@1.1.0
 apollo@3.0.1
@@ -75,6 +76,7 @@ mongo-id@1.0.7
 npm-bcrypt@0.9.3
 npm-mongo@3.1.2
 oauth@1.2.8
+oauth1@1.2.2
 oauth2@1.2.1
 observe-sequence@1.0.16
 ordered-dict@1.1.0
@@ -107,6 +109,7 @@ templating-tools@1.1.2
 themeteorchef:bert@2.2.0
 tmeasday:check-npm-versions@0.3.2
 tracker@1.2.0
+twitter-oauth@1.2.0
 underscore@1.0.10
 url@1.2.0
 webapp@1.7.4

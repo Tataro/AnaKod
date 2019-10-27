@@ -32,8 +32,8 @@
       },
       "twitter": {
         "enabled": true,
-        "clientId": "",
-        "secret": "",
+        "consumerKey": "4mMajA2k7mesMImuJdTYEKPuX",
+        "secret": "qeeSiRgNs7xdeOUTxQkBcWYYkCDlWKq5ilbJYJEfn3hbK0ztTg",
         "loginStyle": "popup"
       }
     },

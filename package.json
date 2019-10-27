@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "dev": "meteor --settings settings-development.json",
+    "dev": "MONGO_URL=mongodb://localhost/anakod meteor --settings settings-development.json",
     "staging": "DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com meteor deploy pup-staging.cleverbeagle.com --settings settings-staging.json",
     "production": "DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com meteor deploy pup.cleverbeagle.com --settings settings-production.json",
     "lint": "eslint .",

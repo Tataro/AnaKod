@@ -45,6 +45,12 @@ const Profile = styled.div`
         border-color: var(--github);
         color: #fff;
       }
+
+      &.btn-twitter {
+        background: var(--twitter);
+        border-color: var(--twitter);
+        color: #fff;
+      }
     }
   }
 

@@ -69,5 +69,10 @@ export const StyledListGroupItem = styled(ListGroupItem)`
       background: var(--github);
       color: #fff;
     }
+
+    .label-twitter {
+      background: var(--twitter);
+      color: #fff;
+    }
   }
 `;

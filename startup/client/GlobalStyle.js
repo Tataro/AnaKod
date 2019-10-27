@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     --facebook: #3b5998;
     --google: #ea4335;
     --github: var(--gray-dark);
+    --twitter: #38a0b7;
 
     --cb-blue: #4285F4;
     --cb-green: #00D490;

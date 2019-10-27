@@ -46,11 +46,31 @@ const normalizeFacebookData = (service) => {
   }
 };
 
+const normalizeTwitterData = (service) => {
+  console.log('service = ', JSON.stringify(service, null, 2));
+  try {
+    return {
+      service: 'facebook',
+      emails: [{ address: 'email_ja' }],
+      profile: {
+        name: {
+          first: service.screenName,
+          last: '',
+        },
+      },
+      // emails: [{ address: service.email }],
+    };
+  } catch (exception) {
+    throw new Error(`[normalizeMeteorUserData.normalizeTwitterData] ${exception.message}`);
+  }
+};
+
 const normalizeOAuthUserData = (services) => {
   try {
     if (services.facebook) return normalizeFacebookData(services.facebook);
     if (services.github) return normalizeGithubData(services.github);
     if (services.google) return normalizeGoogleData(services.google);
+    if (services.twitter) return normalizeTwitterData(services.twitter);
     return {};
   } catch (exception) {
     throw new Error(`[normalizeMeteorUserData.normalizeOAuthUserData] ${exception.message}`);
