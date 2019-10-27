@@ -3,7 +3,7 @@
     "graphQL": {
       "httpUri": "http://localhost:3000/graphql"
     },
-    "productName": "Product Name",
+    "productName": "Complain & Advice",
     "copyrightStartYear": "2018",
     "twitterUsername": "product",
     "facebookUsername": "product",
@@ -19,12 +19,18 @@
         "loginStyle": "popup"
       },
       "google": {
-        "enabled": true,
+        "enabled": false,
         "clientId": "",
         "secret": "",
         "loginStyle": "popup"
       },
       "github": {
+        "enabled": false,
+        "clientId": "",
+        "secret": "",
+        "loginStyle": "popup"
+      },
+      "twitter": {
         "enabled": true,
         "clientId": "",
         "secret": "",

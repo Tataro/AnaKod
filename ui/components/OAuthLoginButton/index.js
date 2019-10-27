@@ -26,6 +26,7 @@ const handleLogin = (service, callback) => {
     facebook: Meteor.loginWithFacebook,
     github: Meteor.loginWithGithub,
     google: Meteor.loginWithGoogle,
+    twitter: Meteor.loginWithTwitter,
   }[service](options, callback);
 };
 
@@ -46,6 +47,12 @@ const serviceLabel = {
     <span>
       <Icon iconStyle="brand" icon="google" />
       {' Log In with Google'}
+    </span>
+  ),
+  twitter: (
+    <span>
+      <Icon iconStyle="brand" icon="twitter" />
+      {' Log In with Twitter'}
     </span>
   ),
 };
