@@ -46,6 +46,7 @@ const schema = {
       exportUserData: UserDataExport
       oAuthServices(services: [String]): [String]
       messages: [Message]
+      message(_id: String): Message
       tickets: [Ticket]
       ticket(_id: String): Ticket
     }

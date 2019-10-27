@@ -15,6 +15,7 @@ import Index from '../../pages/Index';
 
 import Messages from '../../pages/Messages';
 import TicketDetail from '../../pages/TicketDetail';
+import MessageDetail from '../../pages/MessageDetail';
 
 import Documents from '../../pages/Documents';
 import ViewDocument from '../../pages/ViewDocument';
@@ -92,6 +93,14 @@ class App extends React.Component {
               exact
               path="/tickets/:_id"
               component={TicketDetail}
+              setAfterLoginPath={setAfterLoginPath}
+              {...props}
+              {...state}
+            />
+            <Authenticated
+              exact
+              path="/messages/:_id"
+              component={MessageDetail}
               setAfterLoginPath={setAfterLoginPath}
               {...props}
               {...state}

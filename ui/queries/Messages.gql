@@ -9,6 +9,17 @@ query messages {
   }
 }
 
+query editMessage($_id: String) {
+  message(_id: $_id) {
+    _id
+    description
+    url
+    created_time
+    updated_time
+    ticket_id
+  }
+}
+
 query documents {
   documents {
     _id

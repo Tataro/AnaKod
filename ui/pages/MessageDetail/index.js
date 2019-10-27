@@ -1,14 +1,14 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import { Panel, Button, FormGroup, FormControl } from 'react-bootstrap';
+import { Panel, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import { graphql } from 'react-apollo';
 import axios from 'axios';
 import DocumentEditor from '../../components/DocumentEditor';
 import Loading from '../../components/Loading';
 import NotFound from '../NotFound';
 import Icon from '../../components/Icon';
-import { editTicket as editTicketQuery } from '../../queries/Tickets.gql';
+import { editMessage as editMessageQuery } from '../../queries/Messages.gql';
 
 // const EditDocument = ({ data, history }) => (
 //   <React.Fragment>
@@ -26,7 +26,6 @@ class EditDocument extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
@@ -34,70 +33,61 @@ class EditDocument extends React.PureComponent {
     };
   }
 
-  handleChange(e) {
-    this.setState({ ans: e.target.value });
-  }
-
-  handleSubmit(ticket) {
+  handleSubmit(message) {
     console.log('submit');
-    const text = this.state.ans;
+    console.log('message', message)
+    // const text = this.state.ans;
     const payload = {
-      user_id: this.props.userId,
-      message_id: ticket.message_id,
-      text,
+      message_id: message._id,
+      tags: ['การเมือง'],
+      area_tag: 'Bangkok'
     };
     console.log('payload = ', payload);
     axios
-      .post('http://165.22.103.247:4000/tweet', payload)
+      .post('http://165.22.103.247:4000/ticket', payload)
       .then((response) => {
         console.log(response);
-        alert(`'reply successful'`);
+        alert(`'create ticket successful'`);
       })
       .catch((error) => {
-        alert(`'reply error'`);
+        alert(`'create error'`);
         console.log(error);
       });
   }
 
   render() {
     const { data, history } = this.props;
-    const { ticket } = data;
+    const { message } = data;
+    console.log('message', message)
     return !data.loading ? (
       <React.Fragment>
         <Panel>
           <Panel.Heading>
-            <span>Ticket #{ticket._id}</span>
+            <span>Message #{message._id}</span>
             <span style={{ float: 'right' }}>
-              <a href={ticket.url} target="_blank">
+              <a href={message.url} target="_blank">
                 <Icon iconStyle="solid" icon="link" /> Link
               </a>
             </span>
           </Panel.Heading>
           <Panel.Body>
-            <span>{moment(ticket.created_time).format('LLL')}</span>
+            <span>{moment(message.created_time).format('LLL')}</span>
             <p style={{ fontSize: '17px', paddingTop: '12px', paddingBottom: '16px' }}>
-              {ticket.description}
+              {message.description}
             </p>
-            <p>
-              status:
-              {ticket.status}
-            </p>
-            <p>
-              tags:
-              {ticket.tags}
-            </p>
+            {message.ticket_id && <p>ticket id: {message.ticket_id}</p>}
           </Panel.Body>
         </Panel>
         <form>
-          <FormGroup controlId="formans">
-            <FormControl
-              type="text"
-              defaultValue={this.state.ans}
-              placeholder="Reply comment"
-              onChange={this.handleChange}
-            />
+          <FormGroup controlId="formControlsSelect">
+            <ControlLabel>Select Assignee</ControlLabel>
+            <FormControl componentClass="select" placeholder="select">
+              <option value="select">จิรายุ</option>
+              <option value="other">กิตติทัต</option>
+              <option value="ot">ธนาธร</option>
+            </FormControl>
           </FormGroup>
-          <Button bsStyle="primary" onClick={() => this.handleSubmit(ticket)}>
+          <Button bsStyle="primary" onClick={() => this.handleSubmit(message)}>
             Submit
           </Button>
         </form>
@@ -113,7 +103,7 @@ EditDocument.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default graphql(editTicketQuery, {
+export default graphql(editMessageQuery, {
   options: ({ match }) => ({
     variables: {
       _id: match.params._id,
