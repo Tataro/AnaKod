@@ -5,7 +5,7 @@ export default {
     return Messages.find(
       {},
       // { sort: { created_time: args.sortBy === 'newestFirst' ? -1 : 1 } },
-      { sort: { created_time: -1 } },
+      { sort: { created_time: -1 }, limit: 10 },
     ).fetch();
   },
 };

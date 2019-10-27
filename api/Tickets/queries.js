@@ -8,4 +8,8 @@ export default {
       { sort: { created_time: -1 } },
     ).fetch();
   },
+  ticket: (parent, args, context) => {
+    console.log('args id', args._id);
+    return Tickets.findOne({ _id: args._id });
+  },
 };

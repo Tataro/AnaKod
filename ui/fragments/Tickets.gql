@@ -1,0 +1,11 @@
+fragment TicketAttributes on Ticket {
+  _id
+  description
+  status
+  message_id
+  url
+  tags
+  area_tag
+  created_time
+  updated_time
+}

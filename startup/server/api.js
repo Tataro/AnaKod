@@ -47,6 +47,7 @@ const schema = {
       oAuthServices(services: [String]): [String]
       messages: [Message]
       tickets: [Ticket]
+      ticket(_id: String): Ticket
     }
 
     type Mutation {

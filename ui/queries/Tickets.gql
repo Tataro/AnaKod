@@ -1,0 +1,37 @@
+query tickets {
+  tickets {
+    _id
+    description
+    status
+    message_id
+    url
+    tags
+    area_tag
+    created_time
+    updated_time
+  }
+}
+
+query editTicket($_id: String) {
+  ticket(_id: $_id) {
+    _id
+    description
+    status
+    message_id
+    url
+    tags
+    area_tag
+    created_time
+    updated_time
+  }
+}
+
+query documents {
+  documents {
+    _id
+    isPublic
+    title
+    updatedAt
+    createdAt
+  }
+}
